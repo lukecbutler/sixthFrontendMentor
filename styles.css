@@ -81,6 +81,7 @@ body{
 /* Grid Portion */
 .grid-container{
     margin-top: 100px;
+    margin-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
