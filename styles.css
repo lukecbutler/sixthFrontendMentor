@@ -1,6 +1,6 @@
 /* Header Section */
 
-/* Entire Document */
+/* Whole Document Styling*/
 *{
     box-sizing: border-box;
     margin: 0;
@@ -11,8 +11,9 @@ body{
     font-family: "Poppins", sans-serif;
     background-color: hsl(0, 0%, 100%)
 }
+/* Whole Document Styling*/
 
-/* Header Flexbox */
+/* Header using Flexbox */
 .flex-container{
     display: flex;
     flex-direction: column;
@@ -42,31 +43,33 @@ body{
     text-align: center;
     margin-top: 15px;
 }
+/* Header using Flexbox */
 
 /* Cards */
 .supervisor-container, .team-builder-container, .karma-container, .calculator-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 350px;
     height: 250px;
-    align-items: start;
     padding: 32px;
     box-shadow: 0 5px 8px hsl(220, 3%, 82%);
     border-radius: 10px;
 }
 
+/* Card headers */
 .supervisor-container > h2, .team-builder-container > h2, .karma-container > h2, .calculator-container > h2{
     color: hsl(234, 12%, 34%);
     font-weight: 500;
 }
 
+/* Card descriptions */
 .supervisor-container > p, .team-builder-container > p, .karma-container > p, .calculator-container > p{
     color: hsl(212, 6%, 44%);
     font-weight: 300;
     font-size: 13px;
 }
 
+/* Card icons */
 .supervisor-container > img, .team-builder-container > img, .karma-container > img, .calculator-container > img{
     width: 64px;
     height: auto;
@@ -75,45 +78,139 @@ body{
     padding-top: 10px;
 }
 
+/* Grid Portion */
+.grid-container{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    /* add 2 rows for stacking */
+    grid-template-rows: 1fr 1fr; 
+
+    /* Center items in container*/
+    justify-items: center;
+
+    gap: 0 0;
+
+    
+}
+
+
+/* Cards selected by class */
 .supervisor-container{
     border-top: 4px solid hsl(180, 62%, 55%);
-    margin-top: 50px;
-    align-self: start;
-    grid-row: 2;
+
+    /* span the first & second row */
+    grid-row: 1/3; 
+
+    /* center vertically in the middle of row one and two */
+    align-self: center;
+
+    justify-self: end;
+
 }
 
 .team-builder-container{
     border-top: 4px solid hsl(0, 78%, 62%);
-    margin-top: 50px;
-    grid-column: 2;
-    grid-row: 1;
+
 }
 
 .karma-container{
     border-top: 4px solid hsl(34, 97%, 64%);
-    margin-top: 50px;
-    grid-column: 2;
+    grid-column-start: 2;
+    margin-top: 20px
 }
 
 .calculator-container{
     border-top: 4px solid hsl(212, 86%, 64%);
-    margin-top: 50px;
-    margin-bottom: 50px;
+    grid-row: 1/3;
+    grid-column: 3;
+    align-self: center;
+
+    justify-self: start;
 
 }
 
-/* Grid Portion */
-.grid-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
+/* Tablet Responsiveness */
+@media screen and (max-width: 1150px) and (min-width: 701px){
+    /* Header */
+    .flex-container{
+        justify-content: center;
+    }
+
+    /* Grid Container */
+    .grid-container{
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+
+        grid-column-gap: 30px;
+
+    }
+
+
+    /* Individual Cards */
+    .supervisor-container{
+        width: 314px;
+        height: 250px;
+
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row: 1;
+
+        justify-self: center;
+
+    }
+
+    .team-builder-container{
+        width: 314px;
+        height: 250px;
+
+        grid-column: 1;
+        grid-row: 2;
+
+        align-self: center;
+        justify-self: end;
+
+        position: relative;
+        top: 5px;
+    }
+
+    .karma-container{
+        width: 314px;
+        height: 250px;
+
+        grid-column: 2;
+        grid-row: 2;
+
+        align-self: center;
+        justify-self: start;
+
+        position: relative;
+        bottom: 5px;
+    }
+
+    .calculator-container{
+        width: 314px;
+        height: 250px;
+
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row:3;
+
+        justify-self: center;
+    }
+
 
 }
+
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 700px) {
+    /* Header */
+
+    .flex-container{
+        justify-content: center;
+    }
     .header1, .header2{
         text-align: center;
     }
@@ -128,24 +225,43 @@ body{
         margin-top: 20px;
     }
 
+    /* Description */
     .description{
-        font-size: 20px;
-        max-width: 890%;
+        font-size: 18px;
+        max-width: 89%;
     }
 
+    /* Grid Container */
     .grid-container{
         display: grid;
         grid-template-columns: 1fr;
-        justify-content: center;
+        grid-template-rows: 1fr;
+        justify-items: center;
 
+    }
+
+
+    /* reset the grid column to one as it is set to 2 for the desktop */
+    .supervisor-container{
+        grid-column: 1;
+        justify-self: center;
+    }
+
+    .team-builder-container{
+        grid-column: 1;
+        margin-top: 30px;
     }
 
     .karma-container{
         grid-column: 1;
     }
 
-    .team-builder-container{
+    .calculator-container{
         grid-column: 1;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        grid-row: 5;
+        justify-self: center;
     }
 
 }
