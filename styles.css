@@ -97,6 +97,10 @@ body{
     
 }
 
+.footer{
+    height: 10em;
+}
+
 
 /* Cards selected by class */
 .supervisor-container{
